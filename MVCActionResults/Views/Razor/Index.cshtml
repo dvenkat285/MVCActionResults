@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @*single line statements*@
+
+        @{ int Count = 0;}
+        @{ Count += 100;}
+        @{ string str = "Hello World";}
+        @{ Object Obj = new Object();}
+
+        <h5>Value of count is: @Count </h5>
+        Value of str is : @str <br />
+        Type of Obj is : @Obj.GetType()
+        <br /><br />
+
+        @*In line statements*@
+
+        Value of count is : @Count
+        <br />
+        Value of str is: @str
+        <br />
+        Obj is of type: @Obj.GetType()
+        <hr />
+
+        @*Multi Line statements*@
+
+        @{
+            string Date = DateTime.Now.ToShortDateString();
+            string Time = DateTime.Now.ToShortTimeString();
+            <span>Today's Date is : @Date</span> <br />
+            @:Current Time is : @Time <br />
+            <text>Current Time is : @Time</text> <br />
+            @:Today's  Time is : @DateTime.Now.ToLongTimeString()
+        }
+        <br />
+        @*if else condition in Razor programming *@
+        @{
+            int x = 131;
+            if (x % 2 == 0)
+            {
+                <span>@x is an even number. </span>
+            }
+            else
+            {
+                <span>@x is an odd number. </span>
+            }
+        }
+        <hr />
+        @{ string[] Colors = { "Red", "Blue", "Green", "Yellow", "Magenta" };}
+        @*Loops in Razor programming - For Loop*@
+        @{
+            <ol>
+                @for (int i = 0; i < Colors.Length; i++)
+                {
+                    <li>@Colors[i]</li>
+                }
+            </ol>
+        }
+        //or
+    <ol>
+        @{
+            for (int i = 0; i < Colors.Length; i++)
+            {
+                <li>@Colors[i]</li>
+            }
+        }
+    </ol>
+        <hr />
+        <ul>
+            @for (int i = 0; i<Colors.Length; i++)
+            {
+                <li>@Colors[i]</li>
+            }
+        </ul>
+        @{ 
+            <ul>
+                @foreach (string color in Colors)
+            {
+                <li>@color</li>
+            }
+            </ul>
+        }
+        <hr />
+        <ol>
+            @{ 
+                foreach(string color in Colors)
+            {
+                <li>@color</li>
+            }
+            }
+        </ol>
+        <hr />
+        <ul>
+            @foreach(string color in Colors)
+            {
+                <li>@color</li>
+            }
+        </ul>
+        </div>
+</body>
+</html>
